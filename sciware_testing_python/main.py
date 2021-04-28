@@ -21,12 +21,15 @@ def sum_numbers(number_list):
 
     Example
     -------
-    >>> 1
-    1
+    >>> sum_numbers([1, 2, 3])
+    6
     """
 
     sum_val = 0
     for n in number_list:
+        if not isinstance(n, (float, int)):
+            raise ValueError('sum_numbers sums a list containing only ints and floats.')
+
         sum_val += n
 
     return sum_val
@@ -56,6 +59,6 @@ def add_vectors(vector_1, vector_2):
     sum_vec = []
 
     for a, b in zip(vector_1, vector_2):
-        sum_vec.append(a * b)
+        sum_vec.append(a + b)
 
     return sum_vec
